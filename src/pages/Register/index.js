@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const TEXT = {
   GREETINGS: "Register",
+  REGISTER: "Register Now",
 };
 
 const LABEL = {
