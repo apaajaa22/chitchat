@@ -1,6 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Button, TextInput } from "../../components";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Auth } from "../../Fire";
 
 const TEXT = {
   GREETINGS: "LOGIN",
@@ -17,23 +18,38 @@ const PLACEHOLDER = {
 };
 
 function Login() {
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function onRegister() {
-    console.log("register");
-    navigate("/");
+  async function onLogin() {
+    try {
+      await signInWithEmailAndPassword(Auth, email, password);
+      setEmail("");
+      setPassword("");
+    } catch (e) {
+      setEmail("");
+      setPassword("");
+      console.log(e.message);
+    }
   }
 
   return (
     <div className="bg-main h-screen items-center flex flex-col space-y-8 justify-center">
       <h1 className="text-white text-3xl text-center">{TEXT.GREETINGS}</h1>
-      <TextInput label={LABEL.EMAIL} placeholder={PLACEHOLDER.EMAIL} />
+      <TextInput
+        label={LABEL.EMAIL}
+        placeholder={PLACEHOLDER.EMAIL}
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+      />
       <TextInput
         label={LABEL.PASSWORD}
         placeholder={PLACEHOLDER.PASSWORD}
         type={"password"}
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
       />
-      <Button onClick={onRegister} label={TEXT.LOGIN} />
+      <Button onClick={onLogin} label={TEXT.LOGIN} />
     </div>
   );
 }

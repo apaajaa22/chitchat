@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, TextInput } from "../../components";
-import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Auth } from "../../Fire";
 
 const TEXT = {
   GREETINGS: "Register",
@@ -19,22 +20,37 @@ const PLACEHOLDER = {
 };
 
 function Register() {
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function onRegister() {
-    console.log("register");
-    navigate("/");
+  async function onRegister() {
+    console.log("email", email);
+    console.log("password", password);
+    try {
+      await createUserWithEmailAndPassword(Auth, email, password);
+      setEmail("");
+      setPassword("");
+    } catch (e) {
+      setEmail("");
+      setPassword("");
+      console.log(e.message);
+    }
   }
 
   return (
     <div className="bg-main h-screen items-center flex flex-col space-y-8 justify-center">
       <h1 className="text-white text-3xl text-center">{TEXT.GREETINGS}</h1>
       <TextInput label={LABEL.FULL_NAME} placeholder={PLACEHOLDER.FULL_NAME} />
-      <TextInput label={LABEL.EMAIL} placeholder={PLACEHOLDER.EMAIL} />
+      <TextInput
+        label={LABEL.EMAIL}
+        placeholder={PLACEHOLDER.EMAIL}
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <TextInput
         label={LABEL.PASSWORD}
         placeholder={PLACEHOLDER.PASSWORD}
         type={"password"}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <Button onClick={onRegister} label={TEXT.REGISTER} />
     </div>
