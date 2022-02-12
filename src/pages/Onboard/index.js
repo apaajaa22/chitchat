@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components";
 
 const TEXT = {
   GREETINGS: "Welcome to our App",
@@ -27,25 +28,10 @@ function Onboard() {
   return (
     <div className="bg-main h-screen items-center flex flex-col space-y-8 justify-center">
       <h1 className="text-white text-3xl text-center">{TEXT.GREETINGS}</h1>
-      <button
-        onClick={onRegister}
-        className="bg-button text-white w-72 h-12 rounded-md hover:scale-105 transform-gpu"
-      >
-        {TEXT.REGISTER}
-      </button>
+      <Button onClick={onRegister} label={TEXT.REGISTER} />
       <p className="text-white text-md text-center">{TEXT.DESCRIPTION}</p>
-      <button
-        onClick={onLogin}
-        className="bg-button text-white  w-72 h-12 rounded-md hover:scale-105 transform-gpu"
-      >
-        {TEXT.LOGIN}
-      </button>
-      <button
-        onClick={onLoginAsGuest}
-        className="bg-button text-white  w-72 h-12 rounded-md hover:scale-105 transform-gpu"
-      >
-        {TEXT.LOGIN_AS_GUEST}
-      </button>
+      <Button onClick={onLogin} label={TEXT.LOGIN} />
+      <Button onClick={onLoginAsGuest} label={TEXT.LOGIN_AS_GUEST} />
     </div>
   );
 }

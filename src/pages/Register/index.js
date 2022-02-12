@@ -1,13 +1,9 @@
 import React from "react";
-import { TextInput } from "../../components";
+import { Button, TextInput } from "../../components";
 import { useNavigate } from "react-router-dom";
 
 const TEXT = {
-  GREETINGS: "Welcome to our App",
-  REGISTER: "Register Now",
-  LOGIN: "Login",
-  LOGIN_AS_GUEST: "Login as Guest",
-  DESCRIPTION: "Already have an account ?",
+  GREETINGS: "Register",
 };
 
 const LABEL = {
@@ -39,12 +35,7 @@ function Register() {
         placeholder={PLACEHOLDER.PASSWORD}
         type={"password"}
       />
-      <button
-        onClick={onRegister}
-        className="bg-button text-white w-72 h-12 rounded-md hover:scale-105 transform-gpu"
-      >
-        {TEXT.REGISTER}
-      </button>
+      <Button onClick={onRegister} label={TEXT.REGISTER} />
     </div>
   );
 }
