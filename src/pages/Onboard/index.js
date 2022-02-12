@@ -22,7 +22,7 @@ function Onboard() {
   }
 
   function onLoginAsGuest() {
-    console.log("login as guest");
+    navigate("/guest");
   }
 
   return (

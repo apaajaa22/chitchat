@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Onboard, Login, Register } from "./pages";
+import { Onboard, Login, Register, LoginAsGuest } from "./pages";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Onboard />} />
         <Route path="login" element={<Login />} />
+        <Route path="guest" element={<LoginAsGuest />} />
         <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
