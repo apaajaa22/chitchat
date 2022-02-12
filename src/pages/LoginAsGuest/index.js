@@ -4,15 +4,15 @@ import { Button, TextInput } from "../../components";
 
 const TEXT = {
   GREETINGS: "Hello",
-  LOGIN: "Login",
+  LOGIN_AS_GUEST: "Login as Guest",
 };
 
 const LABEL = {
-  NAME: "Name",
+  FULL_NAME: "Full name",
   PASSWORD: "Password",
 };
 const PLACEHOLDER = {
-  NAME: "steve jobs",
+  FULL_NAME: "steve jobs",
 };
 
 function LoginAsGuest() {
@@ -26,8 +26,8 @@ function LoginAsGuest() {
   return (
     <div className="bg-main h-screen items-center flex flex-col space-y-8 justify-center">
       <h1 className="text-white text-3xl text-center">{TEXT.GREETINGS}</h1>
-      <TextInput label={LABEL.NAME} placeholder={PLACEHOLDER.NAME} />
-      <Button onClick={onRegister} label={TEXT.LOGIN} />
+      <TextInput label={LABEL.FULL_NAME} placeholder={PLACEHOLDER.FULL_NAME} />
+      <Button onClick={onRegister} label={TEXT.LOGIN_AS_GUEST} />
     </div>
   );
 }
