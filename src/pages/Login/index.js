@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, TextInput } from "../../components";
+import { Button, TextInput } from "@components";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Auth } from "../../Fire";
+import { Auth } from "@fire";
 
 const TEXT = {
   GREETINGS: "LOGIN",

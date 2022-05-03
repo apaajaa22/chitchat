@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, TextInput } from "../../components";
+import { Button, TextInput } from "@components";
 
 const TEXT = {
   GREETINGS: "Hello",

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../components";
+import { Button } from "@components";
 
 const TEXT = {
   GREETINGS: "Welcome to our App",

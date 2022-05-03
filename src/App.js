@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Onboard, Login, Register, LoginAsGuest, Active } from "./pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Active, Login, LoginAsGuest, Onboard, Register } from "@pages";
 import { onAuthStateChanged } from "firebase/auth";
-import { Auth } from "./Fire";
+import { Auth } from "@fire";
 
 function App() {
   const [login, setLogin] = useState(null);

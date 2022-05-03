@@ -1,6 +1,6 @@
-import { Button } from "../../components";
+import { Button } from "@components";
 import { signOut } from "firebase/auth";
-import { Auth } from "../../Fire";
+import { Auth } from "@fire";
 
 function Active() {
   const TEXT = {
